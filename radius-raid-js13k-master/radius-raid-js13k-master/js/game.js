@@ -937,6 +937,18 @@ $.spawnPowerup = function( x, y ) {
 /*==============================================================================
 States
 ==============================================================================*/
+var enemy1 = new Boolean(false);
+var enemy2 = new Boolean(false);
+var enemy3 = new Boolean(false);
+var enemy4 = new Boolean(false);
+var enemy5 = new Boolean(false);
+var enemy6 = new Boolean(false);
+var enemy7 = new Boolean(false);
+var enemy8 = new Boolean(false);
+var enemy9 = new Boolean(false);
+var enemy10 = new Boolean(false);
+var enemy11 = new Boolean(false);
+var enemy12 = new Boolean(false);
 $.setState = function( state ) {
 	// handle clean up between states
 	$.buttons.length = 0;
@@ -989,8 +1001,8 @@ $.setState = function( state ) {
 	}
 	if( state == 'pickenemy') {
 		$.mouse.down = 0;
-		$.enemy1 = false;
-		var enemy1 = new $.Button({ 
+		
+		var Easiest = new $.Button({ 
 			x: 150,
 			y: 250,
 			lockedWidth: 250,
@@ -998,12 +1010,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'EASIEST',
 			action: function() {
-				$.enemy1 = true;
+				if (enemy1 == false ) {
+					enemy1 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy1 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy1 );
+		$.buttons.push( Easiest );
 
-		var enemy2 = new $.Button({ 
+		var Splitter = new $.Button({ 
 			x: 150,
 			y: 300,
 			lockedWidth: 250,
@@ -1011,12 +1030,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'SPLITTER',
 			action: function() {
-				
+				if (enemy2 == false ) {
+					enemy2 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy2 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy2 );
+		$.buttons.push( Splitter );
 		
-		var enemy3 = new $.Button({ 
+		var Wanderer = new $.Button({ 
 			x: 150,
 			y: 350,
 			lockedWidth: 250,
@@ -1024,12 +1050,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'WANDERER',
 			action: function() {
-				
+				if (enemy3 == false ) {
+					enemy3 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy3 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy3 );
+		$.buttons.push( Wanderer );
 
-		var enemy4 = new $.Button({ 
+		var Stealth = new $.Button({ 
 			x: 150,
 			y: 400,
 			lockedWidth: 250,
@@ -1037,12 +1070,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'STEALTH',
 			action: function() {
-				
+				if (enemy4 == false ) {
+					enemy4 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy4 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy4 );
+		$.buttons.push( Stealth );
 
-		var enemy5 = new $.Button({ 
+		var Big = new $.Button({ 
 			x: 400,
 			y: 250,
 			lockedWidth: 250,
@@ -1050,12 +1090,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'BIG',
 			action: function() {
-				
+				if (enemy5 == false ) {
+					enemy5 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy5 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy5 );
+		$.buttons.push( Big );
 
-		var enemy6 = new $.Button({ 
+		var Small = new $.Button({ 
 			x: 400,
 			y: 300,
 			lockedWidth: 250,
@@ -1063,12 +1110,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'SMALL',
 			action: function() {
-				
+				if (enemy6 == false ) {
+					enemy6 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy6 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy6 );
+		$.buttons.push( Small );
 
-		var enemy7 = new $.Button({ 
+		var Grower = new $.Button({ 
 			x: 400,
 			y: 350,
 			lockedWidth: 250,
@@ -1076,12 +1130,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'GROWER',
 			action: function() {
-				
+				if (enemy7 == false ) {
+					enemy7 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy7 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy7 );
+		$.buttons.push( Grower );
 
-		var enemy8 = new $.Button({ 
+		var Circle = new $.Button({ 
 			x: 400,
 			y: 400,
 			lockedWidth: 250,
@@ -1089,12 +1150,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'CIRCLE',
 			action: function() {
-				
+				if (enemy8 == false ) {
+					enemy8 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy8 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy8 );
+		$.buttons.push( Circle );
 
-		var enemy9 = new $.Button({ 
+		var Spawner = new $.Button({ 
 			x: 650,
 			y: 250,
 			lockedWidth: 250,
@@ -1102,12 +1170,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'SPAWNER',
 			action: function() {
-				
+				if (enemy9 == false ) {
+					enemy9 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy9 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy9 );
+		$.buttons.push( Spawner );
 
-		var enemy10 = new $.Button({ 
+		var Tower = new $.Button({ 
 			x: 650,
 			y: 300,
 			lockedWidth: 250,
@@ -1115,12 +1190,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'TOWER',
 			action: function() {
-				
+				if (enemy10 == false ) {
+					enemy10 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy10 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy10 );
+		$.buttons.push( Tower );
 
-		var enemy11 = new $.Button({ 
+		var Speedy = new $.Button({ 
 			x: 650,
 			y: 350,
 			lockedWidth: 250,
@@ -1128,12 +1210,19 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'SPEEDY',
 			action: function() {
-				
+				if (enemy11 == false ) {
+					enemy11 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy11 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy11 );
+		$.buttons.push( Speedy );
 
-		var enemy12 = new $.Button({ 
+		var Imposible = new $.Button({ 
 			x: 650,
 			y: 400,
 			lockedWidth: 250,
@@ -1141,10 +1230,18 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'IMPOSIBLE',
 			action: function() {
-				
+				if (enemy12 == false ) {
+					enemy12 = true;
+					$.setState( 'pickenemy' );
+				}
+				else {
+					enemy12 = false;
+					$.setState( 'pickenemy' );
+				}
 			}
 		});
-		$.buttons.push( enemy12 );
+		$.buttons.push( Imposible );
+
 
 		var playgameButton = new $.Button({
 			x: 620,
@@ -1389,8 +1486,272 @@ $.setupStates = function() {
 		gradient.addColorStop( 1, '#999' );
 		$.ctxmg.fillStyle = gradient;
 		$.ctxmg.fill();
-		var i = $.buttons.length; while( i-- ){ $.buttons[ i ].render( i ) }
-			i = $.buttons.length; while( i-- ){ $.buttons[ i ].update( i ) }
+		
+		$.ctxmg.beginPath();
+		var Easiest = $.text ( {
+			ctx: $.ctxmg,
+			x: 200,
+			y: 450,
+			text: 'EASIEST',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy1 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Splitter = $.text ( {
+			ctx: $.ctxmg,
+			x: 320,
+			y: 450,
+			text: 'SPLITTER',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy2 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Wanderer = $.text ( {
+			ctx: $.ctxmg,
+			x: 440,
+			y: 450,
+			text: 'WANDERER',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy3 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Stealth = $.text ( {
+			ctx: $.ctxmg,
+			x: 545,
+			y: 450,
+			text: 'STEALTH',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy4 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Big = $.text ( {
+			ctx: $.ctxmg,
+			x: 600,
+			y: 450,
+			text: 'BIG',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy5 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Small = $.text ( {
+			ctx: $.ctxmg,
+			x: 680,
+			y: 450,
+			text: 'SMALL',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy6 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Grower = $.text ( {
+			ctx: $.ctxmg,
+			x: 200,
+			y: 480,
+			text: 'GROWER',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy7 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Circle = $.text ( {
+			ctx: $.ctxmg,
+			x: 310,
+			y: 480,
+			text: 'CIRCLE',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy8 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Spawner = $.text ( {
+			ctx: $.ctxmg,
+			x: 435,
+			y: 480,
+			text: 'SPAWNER',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy9 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Tower = $.text ( {
+			ctx: $.ctxmg,
+			x: 530,
+			y: 480,
+			text: 'TOWER',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy10 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Speedy = $.text ( {
+			ctx: $.ctxmg,
+			x: 620,
+			y: 480,
+			text: 'SPEEDY',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy11 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		$.ctxmg.beginPath();
+		var Imposible = $.text ( {
+			ctx: $.ctxmg,
+			x: 750,
+			y: 480,
+			text: 'IMPOSIBLE',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'right',
+			valign: 'top',
+			scale: 2,
+			snap: 1,
+			render: 1
+		} );
+		if ( enemy12 == true ) {
+			$.ctxmg.fillStyle = '#f00';
+			$.ctxmg.fill();
+		}
+		else {
+			$.ctxmg.fillStyle = '#fff';
+			$.ctxmg.fill();
+		}
+		
 	}
 	$.states['stats'] = function() {
 		$.clearScreen();
