@@ -84,69 +84,6 @@ $.definitions.audio = {
 Enemies
 ==============================================================================*/
 $.definitions.enemies = [	
-	{ // Enemy paling susah - strong grower, move to hero
-		value: 100,
-		speed: 0.8,
-		life: 8,
-		radius: 80,
-		hue: 0,
-		saturation: 100,
-		lightness: 37,
-		canSpawn: 1,
-		spawnTick: 0,
-		spawnMax: 250,
-		behavior: function() {
-			var speed = this.speed;
-				if( $.slow ) {
-				speed = this.speed / $.slowEnemyDivider;
-			}
-
-			var dx = $.hero.x - this.x,
-				dy = $.hero.y - this.y,
-				direction = Math.atan2( dy, dx );			
-			this.vx = Math.cos( direction ) * speed;
-			this.vy = Math.sin( direction ) * speed;
-			if( this.canSpawn ) {				
-				if( this.spawnTick < this.spawnMax ) {
-					this.spawnTick += $.dt;
-				} else {
-					this.spawnTick = 0;
-					var enemy = $.spawnEnemy( this.type );
-					enemy.radius = 20;
-					enemy.canSpawn = 0;
-					enemy.speed = 3;
-					enemy.life = 1;
-					enemy.value = 30;
-					enemy.x = this.x;
-					enemy.y = this.y;
-					$.enemies.push( enemy );
-				}
-			}
-		},death: function() {
-			if( this.canSpawn ) {
-				for( var i = 0; i < 4; i++ ) {
-					var enemy = $.spawnEnemy( this.type );
-					enemy.radius = 40;
-					enemy.canSpawn = 0;
-					enemy.speed = 4;
-					enemy.life = 4;
-					enemy.value = 50;
-					enemy.x = this.x;
-					enemy.y = this.y;
-					if( i == 0 ) {
-						enemy.x -= 45;
-					} else if( i == 1 ) {
-						enemy.x += 45;
-					} else if( i == 2 ) {
-						enemy.y -= 45;
-					} else {
-						enemy.y += 45;
-					}
-					$.enemies.push( enemy );
-				}
-			}
-		}
-	},
 	{ // Enemy 2 - move directly hero
 		value: 15,
 		speed: 1.5,
@@ -478,6 +415,68 @@ $.definitions.enemies = [
 			this.lightness = 50;
 			this.fillStyle = 'hsla(' + this.hue + ', 100%, ' + this.lightness + '%, 0.2)';
 			this.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.lightness + '%, 1)';
+		}
+	},{ // Impossible Enemy
+		value: 100,
+		speed: 0.8,
+		life: 8,
+		radius: 80,
+		hue: 0,
+		saturation: 100,
+		lightness: 37,
+		canSpawn: 1,
+		spawnTick: 0,
+		spawnMax: 250,
+		behavior: function() {
+			var speed = this.speed;
+				if( $.slow ) {
+				speed = this.speed / $.slowEnemyDivider;
+			}
+
+			var dx = $.hero.x - this.x,
+				dy = $.hero.y - this.y,
+				direction = Math.atan2( dy, dx );			
+			this.vx = Math.cos( direction ) * speed;
+			this.vy = Math.sin( direction ) * speed;
+			if( this.canSpawn ) {				
+				if( this.spawnTick < this.spawnMax ) {
+					this.spawnTick += $.dt;
+				} else {
+					this.spawnTick = 0;
+					var enemy = $.spawnEnemy( this.type );
+					enemy.radius = 20;
+					enemy.canSpawn = 0;
+					enemy.speed = 3;
+					enemy.life = 1;
+					enemy.value = 30;
+					enemy.x = this.x;
+					enemy.y = this.y;
+					$.enemies.push( enemy );
+				}
+			}
+		},death: function() {
+			if( this.canSpawn ) {
+				for( var i = 0; i < 4; i++ ) {
+					var enemy = $.spawnEnemy( this.type );
+					enemy.radius = 40;
+					enemy.canSpawn = 0;
+					enemy.speed = 4;
+					enemy.life = 4;
+					enemy.value = 50;
+					enemy.x = this.x;
+					enemy.y = this.y;
+					if( i == 0 ) {
+						enemy.x -= 45;
+					} else if( i == 1 ) {
+						enemy.x += 45;
+					} else if( i == 2 ) {
+						enemy.y -= 45;
+					} else {
+						enemy.y += 45;
+					}
+					$.enemies.push( enemy );
+				}
+			}
 		}
 	}
 ];

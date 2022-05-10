@@ -948,7 +948,7 @@ $.setState = function( state ) {
 
 		$.reset();
 
-		var playButton = new $.Button( {
+		var playtopickButton = new $.Button( {
 			x: $.cw / 2 + 1,
 			y: $.ch / 2 - 24,
 			lockedWidth: 299,
@@ -956,16 +956,14 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'PLAY',
 			action: function() {
-				$.reset();
-				$.audio.play( 'levelup' );
-				$.setState( 'play' );
+				$.setState( 'pickenemy' );
 			}
 		} );
-		$.buttons.push( playButton );
-
+		$.buttons.push( playtopickButton );
+		
 		var statsButton = new $.Button( {
 			x: $.cw / 2 + 1,
-			y: playButton.ey + 25,
+			y: playtopickButton.ey + 25,
 			lockedWidth: 299,
 			lockedHeight: 49,
 			scale: 3,
@@ -989,7 +987,193 @@ $.setState = function( state ) {
 		} ) ;
 		$.buttons.push( creditsButton );
 	}
+	if( state == 'pickenemy') {
+		$.mouse.down = 0;
+		$.enemy1 = false;
+		var enemy1 = new $.Button({ 
+			x: 150,
+			y: 250,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'EASIEST',
+			action: function() {
+				$.enemy1 = true;
+			}
+		});
+		$.buttons.push( enemy1 );
 
+		var enemy2 = new $.Button({ 
+			x: 150,
+			y: 300,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'SPLITTER',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy2 );
+		
+		var enemy3 = new $.Button({ 
+			x: 150,
+			y: 350,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'WANDERER',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy3 );
+
+		var enemy4 = new $.Button({ 
+			x: 150,
+			y: 400,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'STEALTH',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy4 );
+
+		var enemy5 = new $.Button({ 
+			x: 400,
+			y: 250,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'BIG',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy5 );
+
+		var enemy6 = new $.Button({ 
+			x: 400,
+			y: 300,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'SMALL',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy6 );
+
+		var enemy7 = new $.Button({ 
+			x: 400,
+			y: 350,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'GROWER',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy7 );
+
+		var enemy8 = new $.Button({ 
+			x: 400,
+			y: 400,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'CIRCLE',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy8 );
+
+		var enemy9 = new $.Button({ 
+			x: 650,
+			y: 250,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'SPAWNER',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy9 );
+
+		var enemy10 = new $.Button({ 
+			x: 650,
+			y: 300,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'TOWER',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy10 );
+
+		var enemy11 = new $.Button({ 
+			x: 650,
+			y: 350,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'SPEEDY',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy11 );
+
+		var enemy12 = new $.Button({ 
+			x: 650,
+			y: 400,
+			lockedWidth: 250,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'IMPOSIBLE',
+			action: function() {
+				
+			}
+		});
+		$.buttons.push( enemy12 );
+
+		var playgameButton = new $.Button({
+			x: 620,
+			y: 550,
+			lockedWidth: 299,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'PLAY GAME',
+			action: function() {
+				$.audio.play( 'levelup' );
+				$.setState( 'play' );
+			}
+		});
+		$.buttons.push( playgameButton );
+
+		var menuButton = new $.Button( {
+			x: 170,
+			y: 550,
+			lockedWidth: 299,
+			lockedHeight: 49,
+			scale: 3,
+			title: 'MENU',
+			action: function() {
+				$.setState( 'menu' );
+			}
+		} );
+		$.buttons.push( menuButton );
+	}
+	
 	if( state == 'stats' ) {
 		$.mouse.down = 0;
 	
@@ -1102,9 +1286,7 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'PLAY AGAIN',
 			action: function() {
-				$.reset();
-				$.audio.play( 'levelup' );
-				$.setState( 'play' );
+				$.setState( 'pickenemy' );
 			}
 		} );
 		$.buttons.push( resumeButton );
@@ -1182,7 +1364,34 @@ $.setupStates = function() {
 		$.ctxmg.fill();
 
 	};
+	$.states['pickenemy'] = function() {
+		$.clearScreen();
 
+		var i = $.buttons.length; while( i-- ){ $.buttons[ i ].update( i ) }
+			i = $.buttons.length; while( i-- ){ $.buttons[ i ].render( i ) };
+
+		$.ctxmg.beginPath();
+		var pickenemyTitle = $.text({ 
+			ctx: $.ctxmg,
+			x: $.cw / 2,
+			y: 150,
+			text: 'PICK ENEMY',
+			hspacing: 3,
+			vspacing: 1,
+			halign: 'center',
+			valign: 'bottom',
+			scale: 10,
+			snap: 1,
+			render: 1
+		});
+		var gradient = $.ctxmg.createLinearGradient( pickenemyTitle.sx, pickenemyTitle.sy, pickenemyTitle.sx, pickenemyTitle.ey );
+		gradient.addColorStop( 0, '#fff' );
+		gradient.addColorStop( 1, '#999' );
+		$.ctxmg.fillStyle = gradient;
+		$.ctxmg.fill();
+		var i = $.buttons.length; while( i-- ){ $.buttons[ i ].render( i ) }
+			i = $.buttons.length; while( i-- ){ $.buttons[ i ].update( i ) }
+	}
 	$.states['stats'] = function() {
 		$.clearScreen();
 
