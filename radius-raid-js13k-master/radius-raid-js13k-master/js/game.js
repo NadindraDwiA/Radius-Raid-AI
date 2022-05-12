@@ -665,13 +665,18 @@ $.spawnEnemy = function( type ) {
 $.spawnEnemies = function() {
 	var floorTick = Math.floor( $.tick );
 	for( var i = 0; i < $.level.distributionCount; i++ ) {
-		var timeCheck = $.level.distribution[ i ];		
-		if( $.levelDiffOffset > 0 ){
-			timeCheck = Math.max( 1, timeCheck - ( $.levelDiffOffset * 2) );
-		}
-		if( floorTick % timeCheck === 0 ) {
-			$.enemies.push( $.spawnEnemy( i ) );
-		}
+		var timeCheck = $.level.distribution[ i ];
+		for(var j = i; j<12; j++){
+			if( enemyInd[j] == 1 ){
+				if( $.levelDiffOffset > 0 ){
+					timeCheck = Math.max( 1, timeCheck - ( $.levelDiffOffset * 2) );
+				}
+				if( floorTick % timeCheck === 0 ) {
+					$.enemies.push( $.spawnEnemy( j ) );
+				}
+			}
+		}		
+		
 	}
 };
 
@@ -937,18 +942,24 @@ $.spawnPowerup = function( x, y ) {
 /*==============================================================================
 States
 ==============================================================================*/
-var enemy1 = new Boolean(false);
-var enemy2 = new Boolean(false);
-var enemy3 = new Boolean(false);
-var enemy4 = new Boolean(false);
-var enemy5 = new Boolean(false);
-var enemy6 = new Boolean(false);
-var enemy7 = new Boolean(false);
-var enemy8 = new Boolean(false);
-var enemy9 = new Boolean(false);
-var enemy10 = new Boolean(false);
-var enemy11 = new Boolean(false);
-var enemy12 = new Boolean(false);
+var enemyInd = new Array;
+for(x = 0; x<12; x++){
+	enemyInd[x] = 0;
+}
+
+// var enemy1 = new Boolean(false);
+// var enemy2 = new Boolean(false);
+// var enemy3 = new Boolean(false);
+// var enemy4 = new Boolean(false);
+// var enemy5 = new Boolean(false);
+// var enemy6 = new Boolean(false);
+// var enemy7 = new Boolean(false);
+// var enemy8 = new Boolean(false);
+// var enemy9 = new Boolean(false);
+// var enemy10 = new Boolean(false);
+// var enemy11 = new Boolean(false);
+// var enemy12 = new Boolean(false);
+
 $.setState = function( state ) {
 	// handle clean up between states
 	$.buttons.length = 0;
@@ -1010,12 +1021,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'EASIEST',
 			action: function() {
-				if (enemy1 == false ) {
-					enemy1 = true;
+				if (enemyInd[0] == false ) {
+					enemyInd[0] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy1 = false;
+					enemyInd[0] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1030,12 +1041,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'SPLITTER',
 			action: function() {
-				if (enemy2 == false ) {
-					enemy2 = true;
+				if (enemyInd[1] == false ) {
+					enemyInd[1] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy2 = false;
+					enemyInd[1] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1050,12 +1061,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'WANDERER',
 			action: function() {
-				if (enemy3 == false ) {
-					enemy3 = true;
+				if (enemyInd[2] == false ) {
+					enemyInd[2] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy3 = false;
+					enemyInd[2] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1070,12 +1081,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'STEALTH',
 			action: function() {
-				if (enemy4 == false ) {
-					enemy4 = true;
+				if (enemyInd[3] == false ) {
+					enemyInd[3] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy4 = false;
+					enemyInd[3] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1090,12 +1101,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'BIG',
 			action: function() {
-				if (enemy5 == false ) {
-					enemy5 = true;
+				if (enemyInd[4] == false ) {
+					enemyInd[4] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy5 = false;
+					enemyInd[4] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1110,12 +1121,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'SMALL',
 			action: function() {
-				if (enemy6 == false ) {
-					enemy6 = true;
+				if (enemyInd[5] == false ) {
+					enemyInd[5] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy6 = false;
+					enemyInd[5] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1130,12 +1141,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'GROWER',
 			action: function() {
-				if (enemy7 == false ) {
-					enemy7 = true;
+				if (enemyInd[6] == false ) {
+					enemyInd[6] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy7 = false;
+					enemyInd[6] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1150,12 +1161,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'CIRCLE',
 			action: function() {
-				if (enemy8 == false ) {
-					enemy8 = true;
+				if (enemyInd[7] == false ) {
+					enemyInd[7] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy8 = false;
+					enemyInd[7] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1170,12 +1181,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'SPAWNER',
 			action: function() {
-				if (enemy9 == false ) {
-					enemy9 = true;
+				if (enemyInd[8] == false ) {
+					enemyInd[8] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy9 = false;
+					enemyInd[8] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1190,12 +1201,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'TOWER',
 			action: function() {
-				if (enemy10 == false ) {
-					enemy10 = true;
+				if (enemyInd[9] == false ) {
+					enemyInd[9] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy10 = false;
+					enemyInd[9] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1210,12 +1221,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'SPEEDY',
 			action: function() {
-				if (enemy11 == false ) {
-					enemy11 = true;
+				if (enemyInd[10] == false ) {
+					enemyInd[10] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy11 = false;
+					enemyInd[10] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1230,12 +1241,12 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'IMPOSIBLE',
 			action: function() {
-				if (enemy12 == false ) {
-					enemy12 = true;
+				if (enemyInd[11] == false ) {
+					enemyInd[11] = 1;
 					$.setState( 'pickenemy' );
 				}
 				else {
-					enemy12 = false;
+					enemyInd[11] = 0;
 					$.setState( 'pickenemy' );
 				}
 			}
@@ -1251,6 +1262,7 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'PLAY GAME',
 			action: function() {
+				$.reset();
 				$.audio.play( 'levelup' );
 				$.setState( 'play' );
 			}
@@ -1501,7 +1513,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy1 == true ) {
+		if ( enemyInd[0] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1523,7 +1535,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy2 == true ) {
+		if ( enemyInd[1] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1545,7 +1557,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy3 == true ) {
+		if ( enemyInd[2] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1567,7 +1579,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy4 == true ) {
+		if ( enemyInd[3] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1589,7 +1601,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy5 == true ) {
+		if ( enemyInd[4] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1611,7 +1623,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy6 == true ) {
+		if ( enemyInd[5] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1633,7 +1645,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy7 == true ) {
+		if ( enemyInd[6] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1655,7 +1667,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy8 == true ) {
+		if ( enemyInd[7] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1677,7 +1689,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy9 == true ) {
+		if ( enemyInd[8] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1699,7 +1711,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy10 == true ) {
+		if ( enemyInd[9] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1721,7 +1733,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy11 == true ) {
+		if ( enemyInd[10] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
@@ -1743,7 +1755,7 @@ $.setupStates = function() {
 			snap: 1,
 			render: 1
 		} );
-		if ( enemy12 == true ) {
+		if ( enemyInd[11] == true ) {
 			$.ctxmg.fillStyle = '#f00';
 			$.ctxmg.fill();
 		}
